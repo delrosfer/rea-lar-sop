@@ -62,7 +62,7 @@
 							<span class="badge badge-info">Dar Cambio</span>
 						@endif
 					</td>
-					<td align="middle">{{ config('settings.currency_symbol')}} {{number_format( $order->total() - $order->receivedAmount(), 2) }}</td>
+					<td align="rifht">{{ config('settings.currency_symbol')}} {{number_format( $order->total() - $order->receivedAmount(), 2) }}</td>
 					<td>{{ $order->created_at }}</td>
 				</tr>
 				@endforeach
@@ -71,10 +71,10 @@
 				<tr>
 					<th></th>
 					<th></th>					
-					<th>{{ config('settings.currency_symbol')}} {{ number_format($total, 2) }}</th>
-					<th>{{ config('settings.currency_symbol')}} {{ number_format($receivedAmount, 2) }}</th>
+					<th align="middle">{{ config('settings.currency_symbol')}} {{ number_format($total, 2) }}</th>
+					<th align="right">{{ config('settings.currency_symbol')}} {{ number_format($receivedAmount, 2) }}</th>
 					<th></th>
-					<th></th>
+					<th>{{ config('settings.currency_symbol')}} {{ number_format($total-$receivedAmount, 2) }}</th>
 					<th></th>
 				</tr>
 			</tfoot>

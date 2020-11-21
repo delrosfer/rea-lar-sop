@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-md-6">
 					<a href="{{ route('products-pdf') }}" target="_blank" class="btn btn-primary">Inventario PDF</a>
-				</div>
+			</div>
 			<div class="col-md-6">
 				<small class="float-right">Fecha: {{ date(' d-M-Y ') }}</small>
 			</div>
@@ -30,9 +30,9 @@
 					<th>Precio</th>
 					<th>Inventario</th>
 					<th>Estatus</th>
-					<th>Created At</th>
-					<th>Updated At</th>
-					<th>Actions</th>
+					<th>Fecha Alta</th>
+					<th>Fecha Actualización</th>
+					<th>Acción</th>
 
 				</tr>
 			</thead>
@@ -43,7 +43,7 @@
 					<td>{{ $product->name }}</td>
 					<td><img src="{{ Storage::url($product->image) }}" alt="" width="80" height="80"></td>
 					<td>{{ $product->barcode }}</td>
-					<td>{{ $product->price }}</td>
+					<td>{{ config('settings.currency_symbol')}} {{ $product->price }}</td>
 					<td align="middle">{{ $product->quantity }}</td>
 					<td>
 						<span class="right badge badge-{{ $product->status ? 'success' : 'danger' }}">{{ $product->status ? 'Activo' : 'Inactivo' }}</span>

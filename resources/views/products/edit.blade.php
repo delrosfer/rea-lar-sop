@@ -33,7 +33,7 @@
 				<div class="form-group">
 					<label for="image">Imagen</label>
 					<div class="custom-file">
-						<input type="file" name="image" class="custom-file-input" id="image">
+						<input type="file" name="image" class="custom-file-input" id="image" accept="image/*">
 						<label class="custom-file-label" for="image">Seleccionar Archivo</label>
 					</div>
 					@error('image')

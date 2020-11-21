@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Bienvenido al Punto de Venta: ') }}{{ config('app.name') }}
                 </div>
             </div>
         </div>

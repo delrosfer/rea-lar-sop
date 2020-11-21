@@ -32,15 +32,15 @@
 					<th>Telefono</th>
 					<th>Domicilio</th>
 					<th>Fecha de Alta</th>
-					<th>Fecha Actualiz</th>
-					<th>Actions</th>
+					<th>Fecha Actualización</th>
+					<th>Acción</th>
 
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($suppliers as $supplier)
 				<tr>
-					<td>{{ $customer->id }}</td>
+					<td>{{ $supplier->id }}</td>
 					<td>
 						<img width="50" src="{{ $supplier->getAvatarUrl() }}" alt="">
 					</td>

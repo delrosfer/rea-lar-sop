@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('suppliers.index') }}" class="nav-link {{ activeSegment('customers') }}">
+            <a href="{{ route('suppliers.index') }}" class="nav-link {{ activeSegment('suppliers') }}">
               <i class="nav-icon fas fa-warehouse"></i>
               <p>
                 Proveedores

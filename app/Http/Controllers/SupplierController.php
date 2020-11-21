@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Supllier;
+use App\Models\Supplier;
 use App\Http\Requests\SupplierStoreRequest;
 use Barryvdh\DomPDF\Facade as PDF;
 use Storage;

@@ -63,7 +63,7 @@
 				<div class="form-group">
 					<label for="avatar">Avatar</label>
 					<div class="custom-file">
-						<input type="file" name="avatar" class="custom-file-input" id="avatar">
+						<input type="file" name="avatar" class="custom-file-input" id="avatar" accept="image/*">
 						<label class="custom-file-label" for="avatar">Seleccionar Archivo</label>
 					</div>
 					@error('avatar')

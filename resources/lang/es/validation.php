@@ -37,6 +37,7 @@ return [
     'email'                => 'El :attribute debe ser una dirección email valida.',
     'exists'               => 'El :attribute seleccionado es invalido.',
     'filled'               => 'El campo :attribute es requerido.',
+    'name'               => 'El campo :nombre es requerido.',
     'image'                => 'El :attribute debe ser una imagen.',
     'in'                   => 'El :attribute seleccionado es invalido.',
     'integer'              => 'El :attribute debe ser un entero.',

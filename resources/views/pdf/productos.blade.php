@@ -29,7 +29,7 @@
 					<td>{{$product->id}}</td>
 					<td>{{$product->name}}</td>
 					<td>{{$product->barcode}}</td>
-					<td>{{$product->price}}</td>
+					<td>{{ config('settings.currency_symbol')}} {{$product->price}}</td>
 					<td align="middle">{{$product->quantity}}</td>
 					<td>____________________</td>
 				</tr>

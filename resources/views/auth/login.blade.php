@@ -11,12 +11,12 @@
 
 @section('content')
 
-<p class="login-box-msg">Sign in to start your session</p>
+<p class="login-box-msg">Registrese para iniciar sesión</p>
     <form action="{{ route('login') }}" method="post">
         @csrf
         <div class="form-group">
             <div class="input-group">
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Correo Electrónico" value="{{ old('email') }}" required autocomplete="email" autofocus>
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -32,7 +32,7 @@
         <div class="form-group">
             
         <div class="input-group">
-         <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+         <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required autocomplete="current-password">
          <div class="input-group-append">
            <div class="input-group-text">
              <span class="fas fa-lock"></span>
@@ -50,21 +50,21 @@
            <div class="icheck-primary">
              <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
              <label for="remember">
-               Remember Me
+               Recuérdame
              </label>
            </div>
          </div>
          <!-- /.col -->
          <div class="col-4">
-           <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+           <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
          </div>
          <!-- /.col -->
        </div>
     </form>
 <p class="mb-1">
-    <a href="{{ route('password.request') }}">I forgot my password</a>
+    <a href="{{ route('password.request') }}">Olvidé mi contraseña</a>
 </p>
 <p class="mb-0">
-    <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+    <a href="{{ route('register') }}" class="text-center">Registrar una nueva membresia</a>
 </p>
 @endsection

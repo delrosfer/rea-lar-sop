@@ -19,7 +19,7 @@ class OrderController extends Controller
             $orders = $orders->where('created_at', '<=', $request->end_date);
         }
 
-        $orders = $orders->with(['items', 'payments', 'customer'])->latest()->paginate(7);
+        $orders = $orders->with(['items', 'payments', 'customer'])->latest()->paginate(10);
 
         $total = $orders->map(function ($i) {
             return $i->total();
@@ -57,10 +57,10 @@ class OrderController extends Controller
     	return 'success';
     }
 
-    public function exportclientesPdf()
+    public function exportordenesPdf()
     {
         //$products = Product::orderBy('quantity', 'DESC')->paginate(20);
-        $orders = Order::orderBy('id','DESC')->paginate(20);
+        $orders = Order::orderBy('id','DESC')->paginate(8);
         $pdf = PDF::loadView('pdf.ordenes', compact('orders'));
 
         return $pdf->download('ordenes.pdf');

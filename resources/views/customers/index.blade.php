@@ -33,7 +33,7 @@
 					<th>Domicilio</th>
 					<th>Fecha de Alta</th>
 					<th>Fecha Actualiz</th>
-					<th>Actions</th>
+					<th>Acción</th>
 
 				</tr>
 			</thead>
