@@ -14,13 +14,14 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   @yield('cs')
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
+<body class="hold-transition login-page bg-gradient-success">
+
+<div class="login-box bg-gradient-warning">
   <div class="login-logo">
     <a href="../../index2.html">{{ config('app.name') }}</a>
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card text-dark border border-success rounded">
     <div class="card-body login-card-body">
       @yield('content')
     </div>

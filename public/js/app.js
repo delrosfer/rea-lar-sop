@@ -69449,8 +69449,6 @@ var Cart = /*#__PURE__*/function (_Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        name: "",
-        id: "",
         className: "form-control",
         onChange: this.setCustomerId
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -69473,7 +69471,6 @@ var Cart = /*#__PURE__*/function (_Component) {
           key: c.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, c.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
-          name: "",
           className: "form-control form-control-sm qty",
           value: c.pivot.quantity,
           onChange: function onChange(event) {
@@ -69488,12 +69485,12 @@ var Cart = /*#__PURE__*/function (_Component) {
           className: "fas fa-trash"
         }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
           className: "text-right"
-        }, window.APP.currency_symbol, " ", (c.price * c.pivot.quantity).toFixed(2)));
+        }, window.APP.currency_symbol, " ", " ", (c.price * c.pivot.quantity).toFixed(2)));
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
-      }, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Total:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col text-right"
       }, window.APP.currency_symbol, " ", this.getTotal(cart))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"

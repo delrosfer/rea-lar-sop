@@ -9,13 +9,13 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <div class="card">
-	<div class="card-body">
+	<div class="card-body bg-light text-dark border border-warning rounded">
 		<div class="row">
 			<div class="col-md-6">
 				<a href="<?php echo e(route('clientes-pdf')); ?>" class="btn btn-primary">Clientes PDF</a>
 			</div>
 			<div class="col-md-6">
-				<small class="float-right">Fecha: <?php echo e(date(' d-M-Y ')); ?></small>
+				<small class="float-right font-weight-bolder">Fecha: <?php echo e(date(' d-M-Y ')); ?></small>
 			</div>
 
 		</div>

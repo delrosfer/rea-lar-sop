@@ -6,7 +6,7 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="card">
-	<div class="card-body">
+	<div class="card-body bg-light text-dark border border-warning rounded">
 		<div class="row">
 			<div class="col-md-5">
 				<div class="col-md-5">

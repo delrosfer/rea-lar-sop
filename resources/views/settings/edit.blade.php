@@ -6,7 +6,12 @@
 @section('content')
 
 	<div class="card">
-		<div class="card-body">
+		<div class="card-body bg-light text-dark border border-warning rounded">
+			<div class="row">
+				<div class="col-md-12">
+				<small class="float-right font-weight-bolder">Fecha: {{ date(' d-M-Y ') }}</small>
+				</div>
+			</div>
 			<form action="{{ route('settings.store') }}" method="post">
 				@csrf
 				

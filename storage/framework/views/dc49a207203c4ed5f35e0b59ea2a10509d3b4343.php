@@ -11,6 +11,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link font-weight-bolder">Fecha: <?php echo e(date(' d-M-Y ')); ?></a>
+      </li>
     </ul>
 
     <!-- SEARCH FORM -->

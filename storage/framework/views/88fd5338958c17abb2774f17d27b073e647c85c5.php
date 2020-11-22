@@ -1,11 +1,11 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-11">
             <div class="card">
-                <div class="card-header"><?php echo e(__('Dashboard')); ?></div>
+                <div class="card-header text-danger bg-gradient-info font-weight-bolder"><?php echo e(__('Inicio')); ?></div>
 
-                <div class="card-body">
+                <div class="card-body bg-light text-dark border border-warning rounded-pill font-weight-bolder">
                     <?php if(session('status')): ?>
                         <div class="alert alert-success" role="alert">
                             <?php echo e(session('status')); ?>

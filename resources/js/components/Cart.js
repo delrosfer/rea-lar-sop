@@ -48,13 +48,13 @@ class Cart extends Component {
 		axios.get(`/admin/products${query}`).then(res => {
 			const products = res.data.data;
 			this.setState({products});
-		})
+		});
 	}
 
 	handleOnChangeBarcode(event) {
 		const barcode = event.target.value;
 		console.log(barcode);
-		this.setState({barcode})
+		this.setState({barcode});
 	}
 
 	loadCart() {
@@ -117,8 +117,8 @@ class Cart extends Component {
 
 	handleEmptyCart(){
 		axios.post('/admin/cart/empty', {_method: 'DELETE'}).then(res => {
-			this.setState({cart: []});
-		})
+			this.setState({cart: [] });
+		});
 	}
 
 	handleChangeSearch(event) {
@@ -181,111 +181,129 @@ class Cart extends Component {
 
 		return (
 			<div className="row">
-			<div className="col-md-6 col-lg-4">
-				<div className="row mb-2">
-					<div className="col">
-						<form onSubmit={this.handleScanBarcode}> 
-							<input 
+				<div className="col-md-6 col-lg-4">
+					<div className="row mb-2">
+						<div className="col">
+							<form onSubmit={this.handleScanBarcode}> 
+								<input 
+									type="text" 
+									className="form-control" 
+									placeholder="Escanear Código de Barras..." name="" 
+									value={barcode}
+									onChange={this.handleOnChangeBarcode}
+								/>
+							</form>
+							
+						</div>
+						<div className="col">
+							<select
+								className="form-control"
+								onChange={this.setCustomerId}
+							>
+								<option value="">Venta de mostrador</option>
+								{customers.map(cus => (
+									<option
+								 		key={cus.id}
+								 		value={cus.id}
+								 	> {`${cus.first_name} ${cus.last_name}`}</option>
+								 ))}
+							</select>
+						</div>
+					</div>
+					<div className="user-cart">
+						<div className="card">
+							<table className="table table-striped">
+								<thead>
+									<tr>
+										<th>Producto</th>
+										<th>Cantidad</th>
+										<th className="text-right">Precio</th>
+									</tr>
+								</thead>
+								<tbody>
+								{cart.map(c => (
+									<tr key={c.id}>
+										<td>{c.name}</td>
+										<td>
+											<input 
+												type="text" 
+												className="form-control form-control-sm qty" 
+												value={c.pivot.quantity} 
+												onChange={event => 
+													this.handleChangeQty(
+														c.id,
+														event.target.value(c.id))} 
+												/>
+												<button 
+													className="btn btn-danger btn-sm"
+													onClick={() =>
+														this.handleClickDelete(c.id)}
+												>
+												<i className="fas fa-trash"></i>
+											</button>
+										</td>
+										<td className="text-right">
+											{window.APP.currency_symbol} {" "}
+											{(c.price * c.pivot.quantity).toFixed(2)}
+										</td>
+									</tr>
+								))}
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col">Total:</div>
+						<div className="col text-right">
+							{window.APP.currency_symbol} {this.getTotal(cart)}
+						</div>
+					</div>
+					<div className="row">
+						<div className="col">
+							<button 
+								type="button" 
+								className="btn btn-danger btn-block"
+								onClick={this.handleEmptyCart}
+								disabled={!cart.length}
+							>
+								Cancelar
+							</button>
+						</div>
+						<div className="col">
+							<button 
+								type="button" 
+								className="btn btn-primary btn-block"
+									disabled={!cart.length}
+									onClick={this.handleClickSubmit}
+							>Agregar
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="col-md-6 col-lg-8">
+					<div className="mb-2">
+						<input 
 							type="text" 
 							className="form-control" 
-							placeholder="Escanear Código de Barras..." name="" 
-							value={barcode}
-							onChange={this.handleOnChangeBarcode}
+							placeholder="Buscar Productos..."
+							onChange={this.handleChangeSearch}
+							onKeyDown={this.handleSearch}
+						 />
+					</div>
+					<div className="order-product">
+						{products.map(p => (
+							<div
+								onClick={()=> this.addProductToCart(p.barcode)} key={p.id} className="item">
+							<img 
+								src={p.image_url} 
 							/>
-						</form>
 						
-					</div>
-					<div className="col">
-						<select name="" id="" 
-						className="form-control"
-						onChange={this.setCustomerId}
-						>
-							<option value="">Venta de mostrador</option>
-							{customers.map(cus => <option key={cus.id} value={cus.id}> {`${cus.first_name} ${cus.last_name}`}</option>)}
-						</select>
-					</div>
+							<h5>{p.name}</h5>
+							</div>
+						))}
+					</div>	
 				</div>
-				<div className="user-cart">
-					<div className="card">
-						<table className="table table-striped">
-							<thead>
-								<tr>
-									<th>Producto</th>
-									<th>Cantidad</th>
-									<th className="text-right">Precio</th>
-								</tr>
-							</thead>
-							<tbody>
-							{cart.map(c => (
-								<tr key={c.id}>
-									<td>{c.name}</td>
-									<td>
-										<input 
-										type="text" name="" 
-										className="form-control form-control-sm qty" 
-										value={c.pivot.quantity} 
-										onChange={event => this.handleChangeQty(c.id, event.target.value(c.id))} 
-										/>
-										<button 
-										className="btn btn-danger btn-sm"
-										onClick={() => this.handleClickDelete(c.id)}
-										>
-											<i className="fas fa-trash"></i>
-										</button>
-									</td>
-									<td className="text-right">{window.APP.currency_symbol} {(c.price * c.pivot.quantity).toFixed(2)}</td>
-								</tr>
-							))}
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col">Total</div>
-					<div className="col text-right">{window.APP.currency_symbol} {this.getTotal(cart)}</div>
-				</div>
-				<div className="row">
-					<div className="col">
-						<button 
-						type="button" 
-						className="btn btn-danger btn-block"
-						onClick={this.handleEmptyCart}
-						disabled={!cart.length}
-						>Cancelar</button>
-					</div>
-					<div className="col">
-						<button 
-						type="button" 
-						className="btn btn-primary btn-block"
-							disabled={!cart.length}
-							onClick={this.handleClickSubmit}
-						>Agregar</button>
-					</div>
-				</div>
-			</div>
-			<div className="col-md-6 col-lg-8">
-				<div className="mb-2">
-					<input 
-						type="text" 
-						className="form-control" 
-						placeholder="Buscar Productos..."
-						onChange={this.handleChangeSearch}
-						onKeyDown={this.handleSearch}
-					 />
-				</div>
-				<div className="order-product">
-					{products.map(p => (
-						<div onClick={()=> this.addProductToCart(p.barcode)} key={p.id} className="item">
-						<img 
-							src={p.image_url} 
-							/>
-					
-						<h5>{p.name}</h5>
-						</div>
-					))}
-				</div>	
-			</div>
 		</div>
 		);
 	}
@@ -294,5 +312,5 @@ class Cart extends Component {
 export default Cart;
 
 if (document.getElementById('cart')) {
-	ReactDOM.render(<Cart />, document.getElementById('cart'))
+	ReactDOM.render(<Cart />, document.getElementById('cart'));
 }

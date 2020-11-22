@@ -11,13 +11,13 @@
 @endsection
 @section('content')
 <div class="card">
-	<div class="card-body">
+	<div class="card-body bg-light text-dark border border-warning rounded">
 		<div class="row">
 			<div class="col-md-6">
 					<a href="{{ route('products-pdf') }}" target="_blank" class="btn btn-primary">Inventario PDF</a>
 			</div>
 			<div class="col-md-6">
-				<small class="float-right">Fecha: {{ date(' d-M-Y ') }}</small>
+				<small class="float-right font-weight-bolder">Fecha: {{ date(' d-M-Y ') }}</small>
 			</div>
 		</div>
 		<table class="table table-striped table-bordered table-hover">
