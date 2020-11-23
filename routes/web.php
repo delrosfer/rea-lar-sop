@@ -29,6 +29,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 	Route::resource('customers', 'CustomerController');
 	Route::resource('orders', 'OrderController');
 	Route::resource('suppliers', 'SupplierController');
+	Route::resource('employees', 'EmployeeController');
 
 	Route::get('/cart', 'CartController@index')->name('cart.index');
 	Route::post('/cart', 'CartController@store')->name('cart.store');
@@ -40,4 +41,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 	Route::get('/ordeneslistado', 'OrderController@exportordenesPdf')->name('ordenes-pdf');
 	Route::get('/clientes', 'CustomerController@exportclientesPdf')->name('clientes-pdf');
 	Route::get('/proveedores', 'SupplierController@exportproveedoresPdf')->name('proveedores-pdf');
+	Route::get('/empleados', 'EmployeeController@exportempleadosPdf')->name('empleados-pdf');
 });

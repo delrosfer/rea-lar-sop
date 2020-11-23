@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'Crear Proveedores')
-@section('content-header', 'Crear Proveedores')
+@section('title', 'Crear Empleados')
+@section('content-header', 'Crear Empleados')
 
 @section('content')
 
 <div class="card">
 	<div class="card-body bg-light text-dark border border-warning rounded">
-		<form action="{{ route('suppliers.store') }}" method="POST" enctype="multipart/form-data">
+		<form action="{{ route('employees.store') }}" method="POST" enctype="multipart/form-data">
 			@csrf
 
 				<div class="form-group">
 					<label for="first_name">Nombre</label>
-					<input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" id="first_name" placeholder="Nombre del cliente" value="{{ old('first_name')}}">
+					<input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" id="first_name" placeholder="Nombre del empleado" value="{{ old('first_name')}}">
 					@error('first_name')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>

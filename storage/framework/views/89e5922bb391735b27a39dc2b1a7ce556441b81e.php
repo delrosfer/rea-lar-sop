@@ -26,7 +26,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="<?php echo e(route('home')); ?>" class="nav-link">
+            <a href="<?php echo e(route('home')); ?>" class="nav-link <?php echo e(activeSegment('home')); ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -72,10 +72,19 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="<?php echo e(route('employees.index')); ?>" class="nav-link <?php echo e(activeSegment('employees')); ?>">
+              <i class="fa fa-user-plus"></i>
+              <p>
+                Empleados
+              </p>
+            </a>
+          </li>
           
           <li class="nav-item has-treeview">
             <a href="<?php echo e(route('settings.index')); ?>" class="nav-link <?php echo e(activeSegment('settings')); ?>">
-              <i class="nav-icon fas fa-cogs"></i>
+              <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+              <span class="sr-only">Loading...</span>
               <p>
                 Configuración
               </p>

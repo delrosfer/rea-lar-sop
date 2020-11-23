@@ -1,18 +1,19 @@
 @extends('layouts.admin')
 
-@section('title', 'Crear Proveedores')
-@section('content-header', 'Crear Proveedores')
+@section('title', 'Actualizar Empleados')
+@section('content-header', 'Actualizar Empleados')
 
 @section('content')
 
 <div class="card">
 	<div class="card-body bg-light text-dark border border-warning rounded">
-		<form action="{{ route('suppliers.store') }}" method="POST" enctype="multipart/form-data">
+		<form action="{{ route('employees.update', $employee) }}" method="POST" enctype="multipart/form-data">
 			@csrf
+			@method('PUT')
 
 				<div class="form-group">
 					<label for="first_name">Nombre</label>
-					<input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" id="first_name" placeholder="Nombre del cliente" value="{{ old('first_name')}}">
+					<input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" id="first_name" placeholder="Nombre del cliente" value="{{ old('first_name', $employee->first_name)}}">
 					@error('first_name')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -22,7 +23,7 @@
 
 				<div class="form-group">
 					<label for="last_name">Apellido(s)</label>
-					<input name="last_name" class="form-control @error('last_name') is-invalid @enderror" id="last_name" placeholder="Apellido(s)">{{ old('last_name') }}</input> 
+					<input name="last_name" class="form-control @error('last_name') is-invalid @enderror" id="last_name" placeholder="Apellido(s)" value="{{ old('last_name', $employee->last_name) }}"></input> 
 					@error('last_name')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -32,7 +33,7 @@
 
 				<div class="form-group">
 					<label for="email">Correo Elect.</label>
-					<input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Correo Electrónico" value="{{ old('email') }}">
+					<input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Correo Electrónico" value="{{ old('email', $employee->email) }}">
 					@error('email')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -42,7 +43,7 @@
 
 				<div class="form-group">
 					<label for="phone">Telefono</label>
-					<input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" placeholder="Telefono" maxlength="10" value="{{ old('phone') }}">
+					<input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" placeholder="Telefono" minlength="10" maxlength="10" value="{{ old('phone', $employee->phone) }}">
 					@error('phone')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -52,7 +53,7 @@
 
 				<div class="form-group">
 					<label for="address">Domicilio</label>
-					<input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Domicilio" value="{{ old('address') }}">
+					<input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Domicilio" value="{{ old('address', $employee->address) }}">
 					@error('address')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -73,7 +74,7 @@
 					@enderror
 				</div>
 
-				<button class="btn btn-primary" type="submit">Crear</button>
+				<button class="btn btn-primary" type="submit">Actualizar</button>
 		</form>
 	</div>
 </div>

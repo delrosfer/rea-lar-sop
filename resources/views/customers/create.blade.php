@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="card">
-	<div class="card-body">
+	<div class="card-body bg-light text-dark border border-warning rounded">
 		<form action="{{ route('customers.store') }}" method="POST" enctype="multipart/form-data">
 			@csrf
 
